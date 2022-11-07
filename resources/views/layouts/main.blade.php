@@ -91,10 +91,10 @@
   </aside>
   <!-- /.control-sidebar -->
 
-  <!-- Main Footer -->
+  {{-- <!-- Main Footer -->
   <footer class="main-footer">
     <!-- To the right -->
-  </footer>
+  </footer> --}}
 </div>
 <!-- ./wrapper -->
 

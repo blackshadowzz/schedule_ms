@@ -34,14 +34,70 @@
  
            </li>
            <li class="nav-item">
-             <a href="/employees" class="nav-link">
+             <a href="/teachers" class="nav-link">
                <i class="nav-icon bi bi-people-fill"></i>
                <p>
-                 Employee
-                 <span class="right badge badge-danger"></span>
+                 Teacher
+                 <span class="right bi bi-caret-down"></span>
                </p>
              </a>
+             <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/teachers" class="nav-link">
+                  <i class="bi bi-person-video3 ml-2"></i>
+                  <p class="ml-3">Teacher</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/positions" class="nav-link">
+                  <i class="bi bi-person-badge ml-2"></i>
+                  <p class="ml-3">Position</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/departments" class="nav-link">
+                  <i class="bi bi-building ml-2"></i>
+                  <p class="ml-3">Department</p>
+                </a>
+              </li>
+            </ul>
            </li>
+           <li class="nav-item">
+            <a href="/students" class="nav-link">
+              <i class="nav-icon bi bi-people"></i>
+              <p class="">
+                Student
+                <i class=""></i>
+              </p>
+            </a>
+
+          </li>
+           <li class="nav-item">
+            <a href="/courses" class="nav-link">
+              <i class="nav-icon bi bi-folder2-open"></i>
+              <p class="">
+                Course
+                <span class="right bi bi-caret-down"></span>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/courses" class="nav-link">
+                  <i class="bi bi-journals ml-2"></i>
+                  <p class="ml-3">Course</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/subjects" class="nav-link">
+                  <i class="bi bi-journal-text ml-2"></i>
+                  <p class="ml-3">Subject</p>
+                </a>
+              </li>
+            </ul>
+
+          </li>
          </ul>
        </nav>
        <!-- /.sidebar-menu -->
