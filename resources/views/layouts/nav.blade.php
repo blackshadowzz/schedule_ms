@@ -2,7 +2,7 @@
      <!-- Left navbar links -->
      <ul class="navbar-nav">
        <li class="nav-item">
-         <a class="nav-link" data-widget="pushmenu" style="font-size: 20px;color:black;font-weight:800" href="#" role="button"><i class="bi bi-list"></i></a>
+         <a class="nav-link" data-widget="pushmenu" style="font-size: 20px;color:black;font-weight:800" href="" role="button"><i class="bi bi-list"></i></a>
        </li>
      </ul>
  

@@ -19,35 +19,29 @@
           <div>
                @include('students.create')
           </div>
-          <div>
-               <table class="table table-sm table-bordered table-hover shadow mt-2">
+          <div class="rounded-4 table-responsive">
+               <table class="table rounded-4 table-hover shadow mt-2">
                     <thead>
                          <tr>
                               <th>No</th>
-                              <th>First Name</th>
-                              <th>Last Name</th>
+                              <th>Fullname</th>
                               <th>Date of Birth</th>
                               <th>Gender</th>
                               <th>Phone</th>
                               <th>Email</th>
                               <th>Address</th>
-                              <th>Created By</th>
-                              <th>Created Date</th>
                               <th>Actions</th>
                          </tr>
                     </thead>
                     @foreach ($stu as $st)
                          <tr>
                               <td>{{ $st->id }}</td>
-                              <td>{{ $st->first_name }}</td>
-                              <td>{{ $st->last_name }}</td>
+                              <td>{{ $st->first_name }} {{ $st->last_name }}</td>
                               <td>{{ $st->dob }}</td>
                               <td>{{ $st->gender }}</td>
                               <td>{{ $st->phone }}</td>
                               <td>{{ $st->email }}</td>
                               <td>{{ $st->address }}</td>
-                              <td>{{ $st->created_by }}</td>
-                              <td>{{ $st->created_at->format('d-M-Y') }}</td>
                               <td>
                                    <form action="/students/{{$st->id}}" method="post" class="d-flex justify-content-between">
                                         @csrf

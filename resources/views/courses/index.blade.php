@@ -8,12 +8,20 @@
 @endpush
 @section('content')
      <div>
+          <div class="">
+               @if(Session::has('message'))
+               <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{Session::get('message')}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+               </div>
+               @endif
+          </div>
           <div>
 
                @include('courses.create')
           </div>
           <div>
-               <table class="table table-bordered table-hover shadow table-striped mt-2">
+               <table class="table rounded-3 table-hover table-striped shadow mt-2">
                     <thead>
                        <tr>
                            <th>No</th>
@@ -31,7 +39,7 @@
                               <td>{{$c->course_name}}</td>
                               <td>{{$c->description}}</td>
                               <td>{{$c->created_by}}</td>
-                              <td>{{$c->created_at}}</td>
+                              <td>{{$c->created_at->format('d-M-Y')}}</td>
                               <td>
                                    <form action="/courses/{{$c->id}}" method="post" class="d-flex justify-content-between">
                                         @csrf

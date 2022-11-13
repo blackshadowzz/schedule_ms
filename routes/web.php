@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\BuildingController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\RoomController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +35,20 @@ Route::middleware('auth')->group(function(){
     Route::resource('departments',DepartmentController::class);
     Route::resource('students',StudentController::class);
     Route::resource('courses',CourseController::class);
+    Route::resource('rooms',RoomController::class);
+    Route::resource('buildings',BuildingController::class);
+
+    Route::controller(SubjectController::class)->group(function(){
+        Route::prefix('subjects')->group(function(){
+            Route::get('/','index');
+            Route::post('store','store')->name('store_subject');
+            Route::get('{id}/edit','edit')->name('edit_subject');
+            Route::put('update/{id}','update')->name('update_subject');
+            Route::delete('delete/{id}','destroy')->name('delete_subject');
+            Route::get('view/{id}','show')->name('view_subject');
+        });
+    });
+
 });
+
 

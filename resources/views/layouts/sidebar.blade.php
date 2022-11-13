@@ -1,10 +1,9 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
      <!-- Brand Logo -->
      <a href="index3.html" class="brand-link">
-       <img src="/assets/images/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-       <span class="brand-text font-weight-light">Employee MS</span>
+       <img src="/assets/images/logo1.webp" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+       <span class="brand-text font-weight-light">Schedule MS</span>
      </a>
- 
      <!-- Sidebar -->
      <div class="sidebar">
        <!-- Sidebar user panel (optional) -->
@@ -38,7 +37,7 @@
                <i class="nav-icon bi bi-people-fill"></i>
                <p>
                  Teacher
-                 <span class="right bi bi-caret-down"></span>
+                 <i class="right bi bi-caret-down"></i>
                </p>
              </a>
              <ul class="nav nav-treeview">
@@ -77,7 +76,7 @@
               <i class="nav-icon bi bi-folder2-open"></i>
               <p class="">
                 Course
-                <span class="right bi bi-caret-down"></span>
+                <i class="right bi bi-caret-down"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
@@ -93,6 +92,30 @@
                 <a href="/subjects" class="nav-link">
                   <i class="bi bi-journal-text ml-2"></i>
                   <p class="ml-3">Subject</p>
+                </a>
+              </li>
+            </ul>
+
+          </li>
+          <li class="nav-item">
+            <a href="/rooms" class="nav-link">
+              <i class="nav-icon bi bi-people"></i>
+              <p class="">
+                Room
+                <i class="right bi bi-caret-down"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/rooms" class="nav-link">
+                  <i class="bi bi-journal-text ml-2"></i>
+                  <p class="ml-3">Room</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/buildings" class="nav-link">
+                  <i class="bi bi-journal-text ml-2"></i>
+                  <p class="ml-3">Building</p>
                 </a>
               </li>
             </ul>

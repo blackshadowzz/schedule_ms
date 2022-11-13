@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
 
   <style>
-    a:is(:link,:active,:visited).active{
+    li a:is(:link,:active,:visited).active{
       color:var(--primary-color);
       text-decoration:none;
     }
@@ -101,7 +101,7 @@
 <!-- REQUIRED SCRIPTS -->
 <script>
   const activePage = window.location.pathname;
-  const navLinks = document.querySelectorAll('nav a').
+  const navLinks = document.querySelectorAll('nav li a').
   forEach(link => {
     if(link.href.includes(`${activePage}`)){
       link.classList.add('active');

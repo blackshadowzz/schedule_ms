@@ -28,16 +28,16 @@
                          <thead>
                               <tr>
                                    <th>ID</th>
-                                   <th>First Name</th>
-                                   <th>Last Name</th>
+                                   <th>Fullname
+                                        
+                                   </th>
+
                                    <th>Gender</th>
                                    <th>Date of Birth</th>
                                    <th>Phone</th>
                                    <th>Email</th>
                                    <th>Address</th>
                                    <th>Position</th>
-                                   <th>Created By</th>
-                                   <th>Created At</th>
                                    <th>Actions</th>
                               </tr>
                          </thead>
@@ -45,16 +45,16 @@
                               @foreach($teach as $t)
                               <tr>
                                    <td>{{ $t->id }}</td>
-                                   <td>{{ $t->first_name }}</td>
-                                   <td>{{ $t->last_name }}</td>
+                                   <td>{{ $t->first_name }} {{ $t->last_name }}
+                                        
+                                   </td>
                                    <td>{{ $t->gender }}</td>
                                    <td>{{ $t->dob }}</td>
                                    <td>{{ $t->phone }}</td>
                                    <td>{{ $t->email }}</td>
                                    <td>{{ $t->address }}</td>
                                    <td>{{ $t->Position->position_name }}</td>
-                                   <td>{{ $t->created_by }}</td>
-                                   <td>{{ $t->created_at->format('d-M-Y') }}</td>
+
                                    <td>
                                         <form action="/teachers/{{$t->id}}" method="post" class="d-flex justify-content-between">
                                              @csrf

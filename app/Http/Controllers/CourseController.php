@@ -55,7 +55,8 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        $course=Course::where('id', $course->id)->first();
+        return view('courses.view',compact('course'));
     }
 
     /**
@@ -66,7 +67,9 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        if(!$course) return back(404);
+        $course=Course::where('id',$course->id)->first();
+        return view('courses.update',compact('course'));
     }
 
     /**
@@ -76,9 +79,18 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, $id)
     {
-        //
+        $course=Course::find($id);
+        if(!$course) return back(404);
+        $course->course_name=$request->course_name;
+        $course->description=$request->description;
+        $course->created_by=$request->created_by;
+        $course->updated_by=$request->updated_by;
+        if($course->save()){
+            return redirect('courses')->with('message', 'Course record updated successfully');
+        }
+        return back();
     }
 
     /**
@@ -87,8 +99,11 @@ class CourseController extends Controller
      * @param  \App\Models\Course  $course
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
-        //
+        if(Course::where('id', $id)->delete()){
+            return redirect('courses')->with('message', 'Course record deleted successfully');
+        }
+        return back();
     }
 }
