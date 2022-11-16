@@ -14,7 +14,8 @@ class SemesterController extends Controller
      */
     public function index()
     {
-        //
+        $sem=Semester::all();
+        return view('semesters.index',compact('sem'));
     }
 
     /**
@@ -33,9 +34,13 @@ class SemesterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $re)
     {
-        //
+        $sem=$re->except(['_token','updated_by','_method']);
+        if(Semester::create($sem)){
+            return redirect('semesters')->with('message','Semester one record has been created successfully!');
+        }
+        return back();
     }
 
     /**
@@ -57,7 +62,8 @@ class SemesterController extends Controller
      */
     public function edit(Semester $semester)
     {
-        //
+        $sem=Semester::where('id',$semester->id)->first();
+        return view('semesters.update',compact('sem'));
     }
 
     /**
@@ -69,7 +75,11 @@ class SemesterController extends Controller
      */
     public function update(Request $request, Semester $semester)
     {
-        //
+        $sem=$request->except(['_token','_method','created_by','id']);
+        if(Semester::where('id',$semester->id)->update($sem)){
+            return redirect('semesters')->with('message_danger','Semester one record has been updated successfully!');
+        }
+        return back();
     }
 
     /**
@@ -80,6 +90,8 @@ class SemesterController extends Controller
      */
     public function destroy(Semester $semester)
     {
-        //
+        if(Semester::where('id',$semester->id)->delete()){
+            return redirect('semesters')->with('message_danger','Semester has been deleted successfully!');
+        }
     }
 }

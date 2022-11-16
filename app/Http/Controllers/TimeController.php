@@ -12,9 +12,13 @@ class TimeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $re)
     {
-        //
+        $time=Time::all();
+        if($re->query('search')){
+            $time=Time::where('times','LIKE','%'.$re->query('search').'%')->get();
+        }
+        return view('times.index',compact('time'));
     }
 
     /**
@@ -35,7 +39,18 @@ class TimeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $time=new Time();
+        $time->times=$request->times;
+        // $time['days']=$request->input('days[]');
+        $time->days=$request->days;
+        $time->start_date=$request->start_date;
+        $time->end_date=$request->end_date;
+        $time->created_by=$request->created_by;
+        if($time->save()){
+            return redirect('times')->with('message', 'Time one record created successfully!');
+        }
+        return back();
+
     }
 
     /**
@@ -55,9 +70,10 @@ class TimeController extends Controller
      * @param  \App\Models\Time  $time
      * @return \Illuminate\Http\Response
      */
-    public function edit(Time $time)
+    public function edit($id)
     {
-        //
+        $time=Time::where('id',$id)->first();
+        return view('times.update',compact('time'));
     }
 
     /**
@@ -69,7 +85,12 @@ class TimeController extends Controller
      */
     public function update(Request $request, Time $time)
     {
-        //
+        $tim=$request->except(['_token','id','_method','created_by']);
+        if(Time::where('id',$time->id)->update($tim)){
+            return redirect('times')
+            ->with('message_danger','Time one record has been updated successfully!');
+        }
+        return back();
     }
 
     /**
@@ -80,6 +101,8 @@ class TimeController extends Controller
      */
     public function destroy(Time $time)
     {
-        //
+        if(Time::where('id', '=', $time->id)->delete()){
+            return redirect('times')->with('message_danger','Time one record was deleted successfully!');
+        }
     }
 }

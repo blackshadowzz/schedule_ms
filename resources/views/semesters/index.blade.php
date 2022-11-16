@@ -1,10 +1,10 @@
 @extends('layouts.main')
 @section('title','Time')
 @push('Header')
-     Time
+     Semester
 @endpush
 @push('sub_Header')
-     <a href="/times">time</a> / index
+     <a href="/semesters">semester</a> / index
 @endpush
 @section('content')
      <div>
@@ -25,7 +25,7 @@
                @endif
           </div>
           <div>
-               @include('times.create')
+               @include('semesters.create')
           </div>
 
           <div>
@@ -34,35 +34,34 @@
                          <thead>
                               <tr>
                                    <th>No</th>
-                                   <th>Times</th>
-                                   <th>Days</th>
-                                   <th>Start Date</th>
-                                   <th>End Date</th>
+                                   <th>Semester</th>
+                                   <th>Description</th>
+                                   <th>Created By</th>
+                                   <th>Created Date</th>
                                    <th class="" style="width: 7%">Actions</th>
                               </tr>
                          </thead>
                          <tbody>
-                              @foreach ($time as $t)
-                                   <tr>
-                                        <td>{{ $t->id }}</td>
-                                        <td>{{ $t->times }}</td>
-                                        <td>
-                                            {{ $t->days }}
-                                        </td>
-                                        <td>{{ $t->start_date }}</td>
-                                        <td>{{ $t->end_date }}</td>
-                                        <td>
-                                             <form action="/times/{{$t->id}}" method="post" class="d-flex justify-content-between">
+                             @foreach ($sem as $s)
+                                  <tr>
+                                   <td>{{ $s->id }}</td>
+                                   <td>{{ $s->semester_name }}</td>
+                                   <td>{{ $s->description }}</td>
+                                   <td>{{ $s->created_by }}</td>
+                                   <td>{{ $s->created_at }}</td>
+                                   <td>
+                                        <form action="/semesters/{{$s->id}}" method="post" class="d-flex justify-content-between">
                                                   @csrf
                                                   @method('DELETE')
                                                   <a href="javascript:void(0)" onclick="this.parentElement.submit();return confirm('Do want to delete this record?');" class="bi bi-trash text-danger"></a> |
-                                                  <a href="/times/{{$t->id}}/edit"  class="bi bi-folder-plus"></a> 
+                                                  <a href="/semesters/{{$s->id}}/edit"  class="bi bi-folder-plus"></a> 
                                                   {{-- data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="" --}}
-                                                  {{-- <a href="/times/{{$t->id}}" class="bi bi-text-paragraph"></a> --}}
+                                                  {{-- <a href="/semesters/{{$s->id}}" class="bi bi-text-paragraph"></a> --}}
                                              </form>
-                                        </td>
-                                   </tr>
-                              @endforeach
+                                   </td>
+                                  </tr>
+                             @endforeach
+                             
                          </tbody>
                     </table>
                </div>

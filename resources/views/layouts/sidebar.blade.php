@@ -7,7 +7,7 @@
      <!-- Sidebar -->
      <div class="sidebar">
        <!-- Sidebar user panel (optional) -->
-       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+       {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
          <div class="image">
            <img src="/assets/images/admin.jpg" class="img-circle elevation-2" alt="User Image">
          </div>
@@ -15,7 +15,7 @@
            <a href="" class="d-block">{{ Auth::user()->name }}</a>
          </div>
        </div>
- 
+  --}}
  
        <!-- Sidebar Menu -->
        <nav class="mt-2">
@@ -116,6 +116,36 @@
                 <a href="/buildings" class="nav-link">
                   <i class="bi bi-journal-text ml-2"></i>
                   <p class="ml-3">Building</p>
+                </a>
+              </li>
+            </ul>
+
+          </li>
+          <li class="nav-item">
+            <a href="/schedules" class="nav-link">
+              <i class="nav-icon bi bi-calendar2-week"></i>
+              <p class="">
+                Schedule
+                <i class="right bi bi-caret-down"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/schedules" class="nav-link">
+                  <i class="bi bi-calendar2-week ml-2"></i>
+                  <p class="ml-3">Schedule</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/times" class="nav-link">
+                  <i class="bi bi-stopwatch ml-2"></i>
+                  <p class="ml-3">Time</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/semesters" class="nav-link">
+                  <i class="bi bi-send-check-fill ml-2"></i>
+                  <p class="ml-3">Semester</p>
                 </a>
               </li>
             </ul>
