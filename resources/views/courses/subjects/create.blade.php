@@ -60,7 +60,7 @@
                     </div>
 
                     <div class="mt-2">
-                         <label for="credit" class="form-label">Credit</label>
+                         <label for="credit" class="form-label">Score</label>
                          <input type="text" name="credit" value="{{ old('credit') }}" id="credit" class="form-control" required placeholder="Credit...">
                          @error('credit')
                          <span class="text-danger">{{ $message }}</span>

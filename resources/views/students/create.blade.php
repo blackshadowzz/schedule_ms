@@ -7,7 +7,7 @@
         <form action="/students" method="get">
              <div class="input-group">
                   <span class="input-group-text" id="search-box">Search</span>
-                  <input type="search" name="search" class="form-control" placeholder="Search..." aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="search" name="search" id="search_box" class="form-control" placeholder="Search..." aria-label="Username" aria-describedby="basic-addon1">
                   <button type="submit" class="btn btn-info">Search</button>
              </div>
         </form>

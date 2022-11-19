@@ -34,7 +34,7 @@
            </li>
            <li class="nav-item">
              <a href="/teachers" class="nav-link">
-               <i class="nav-icon bi bi-people-fill"></i>
+               <i class="nav-icon bi bi-person-video3"></i>
                <p>
                  Teacher
                  <i class="right bi bi-caret-down"></i>
@@ -72,26 +72,26 @@
 
           </li>
            <li class="nav-item">
-            <a href="/courses" class="nav-link">
+            <a href="/subjects" class="nav-link">
               <i class="nav-icon bi bi-folder2-open"></i>
               <p class="">
-                Course
+                Subject
                 <i class="right bi bi-caret-down"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/courses" class="nav-link">
+                <a href="/subjects" class="nav-link">
                   <i class="bi bi-journals ml-2"></i>
-                  <p class="ml-3">Course</p>
+                  <p class="ml-3">Subject</p>
                 </a>
               </li>
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/subjects" class="nav-link">
+                <a href="/courses" class="nav-link">
                   <i class="bi bi-journal-text ml-2"></i>
-                  <p class="ml-3">Subject</p>
+                  <p class="ml-3">Course</p>
                 </a>
               </li>
             </ul>
@@ -125,31 +125,29 @@
             <a href="/schedules" class="nav-link">
               <i class="nav-icon bi bi-calendar2-week"></i>
               <p class="">
-                Schedule
-                <i class="right bi bi-caret-down"></i>
+                Schedule 
+                {{-- <i class="right bi bi-caret-down"></i> --}}
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/schedules" class="nav-link">
-                  <i class="bi bi-calendar2-week ml-2"></i>
-                  <p class="ml-3">Schedule</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/times" class="nav-link">
-                  <i class="bi bi-stopwatch ml-2"></i>
-                  <p class="ml-3">Time</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/semesters" class="nav-link">
-                  <i class="bi bi-send-check-fill ml-2"></i>
-                  <p class="ml-3">Semester</p>
-                </a>
-              </li>
-            </ul>
-
+          
+          </li>
+          <li class="nav-item">
+            <a href="/classes" class="nav-link">
+              <i class="nav-icon bi bi-calendar3"></i>
+              <p class="">
+                Class
+                {{-- <i class="right bi bi-caret-down"></i> --}}
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/assign_students" class="nav-link">
+              <i class="nav-icon bi bi-people"></i>
+              <p class="">
+                Student Class
+                <i class=""></i>
+              </p>
+            </a>
           </li>
          </ul>
        </nav>

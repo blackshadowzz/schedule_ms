@@ -8,9 +8,10 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\RoomController;
-use App\Http\Controllers\TimeController;
 use App\Http\Controllers\SemesterController;
-use App\Http\Controllers\ScheduleController;
+
+use App\Models\Student;
+use App\Models\Teacher;
 
 use Illuminate\Support\Facades\Route;
 
@@ -40,14 +41,8 @@ Route::middleware('auth')->group(function(){
     Route::resource('courses',CourseController::class);
     Route::resource('rooms',RoomController::class);
     Route::resource('buildings',BuildingController::class);
-    Route::resource('times',TimeController::class);
     Route::resource('semesters',SemesterController::class);
-    Route::controller(ScheduleController::class)->group(function(){
-        Route::prefix('schedules')->group(function(){
-            Route::get('/','index');
-            Route::post('/create','store')->name('schedule.store');
-        });
-    });
+
 
 
     Route::controller(SubjectController::class)->group(function(){
@@ -59,6 +54,13 @@ Route::middleware('auth')->group(function(){
             Route::delete('delete/{id}','destroy')->name('delete_subject');
             Route::get('view/{id}','show')->name('view_subject');
         });
+    });
+
+    Route::get('/home', function(){
+        $stu_count=Student::all()->count();
+        $teach_count=Teacher::all()->count();
+
+        return view('/home',compact('stu_count','teach_count'));
     });
 
 });

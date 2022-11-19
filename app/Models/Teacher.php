@@ -13,4 +13,7 @@ class Teacher extends Model
     public  function position(){
         return $this->belongsTo(Position::class);
     }
+    public  function classtable(){
+        return $this->hasMany(Classtable::class);
+    }
 }

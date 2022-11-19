@@ -13,4 +13,7 @@ class Room extends Model
     public function building(){
         return $this->belongsTo(Building::class);
     }
+    public function classtable(){
+        return $this->hasMany(Classtable::class);
+    }
 }

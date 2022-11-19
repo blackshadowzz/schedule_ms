@@ -33,6 +33,7 @@
                               <th>Actions</th>
                          </tr>
                     </thead>
+                    <tbody id="search_data">
                     @foreach ($stu as $st)
                          <tr>
                               <td>{{ $st->id }}</td>
@@ -54,10 +55,22 @@
                               </td>
                          </tr>
                     @endforeach
+                    </tbody>
                </table>
                <div class="d-flex justify-content-center">
                     {{ $stu->links('pagination::bootstrap-4') }} 
                </div>
           </div>
      </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script>
+          $(document).ready(function(){
+          $("#search_box").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#search_data tr").filter(function() {
+               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+          });
+          });
+     </script>
 @endsection
