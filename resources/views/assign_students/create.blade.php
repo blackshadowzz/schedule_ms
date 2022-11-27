@@ -4,10 +4,10 @@
 
      </div>
      <div class="part-search">
-        <form action="/assign_students" method="get">
+        <form action="/student_classes" method="get">
              <div class="input-group">
                   <span class="input-group-text" id="search-box">Search</span>
-                  <input type="search" name="search" class="form-control" placeholder="Search..." aria-label="Username" aria-describedby="basic-addon1">
+                  <input type="search" id="search_box" name="search" class="form-control" placeholder="Search..." aria-label="Username" aria-describedby="basic-addon1">
                   <button type="submit" class="btn btn-info">Search</button>
              </div>
         </form>
@@ -42,7 +42,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                    <form action="/assign_students" method="post" class="" enctype="multipart/form-data">
+                    <form action="/student_classes" method="post" class="" enctype="multipart/form-data">
                          @csrf
                     <div class="row">
                          <div class="col-12">

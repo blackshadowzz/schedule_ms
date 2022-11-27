@@ -12,9 +12,13 @@ class ClasstableController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $re)
     {
-        //
+        $class=Classtable::all();
+        if($re->query('search')){
+            $class=Classtable::where('class_name','LIKE','%'.$re->query('search').'%')->all();
+        }
+        return view('classes.index',compact('class'));
     }
 
     /**
@@ -35,7 +39,11 @@ class ClasstableController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $class=$request->except(['_token','updated_by']);
+        if(Classtable::create($class)){
+            return redirect('classes')->with('message','One record was created successfully!');
+        }
+        return back();
     }
 
     /**
@@ -78,8 +86,11 @@ class ClasstableController extends Controller
      * @param  \App\Models\Classtable  $classtable
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Classtable $classtable)
+    public function destroy($id)
     {
-        //
+        if(Classtable::where('id', $id)->delete()){
+            return redirect('classes')->with('message', 'Classtable record deleted successfully!');
+        }
+        return back();
     }
 }

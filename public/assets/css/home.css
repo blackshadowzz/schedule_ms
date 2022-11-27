@@ -34,10 +34,7 @@
       font-size: 19px;
   }
  
-  li a:hover {
-      background-color: #04AA6D;
-      color: white;
-  }
+
 .right{
      float: right;
  }

@@ -11,7 +11,7 @@ class Semester extends Model
 
     protected $guarded=[];
 
-    public function schedule(){
-        return $this->hasMany(Schedule::class);
+    public function schedule_detail(){
+        return $this->hasMany(Schedule_detail::class);
     }
 }

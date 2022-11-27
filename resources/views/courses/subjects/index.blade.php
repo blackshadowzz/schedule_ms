@@ -27,7 +27,7 @@
                            <th>No</th>
                            <th>Subject Name</th>
                            <th>Course</th>
-                           <th>Credit</th>
+                           <th>Score</th>
                            <th>Description</th>
                            {{-- <th>Created By</th> --}}
                            <th>Created Date</th>

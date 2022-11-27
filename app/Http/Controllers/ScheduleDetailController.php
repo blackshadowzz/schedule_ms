@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classtable;
+use App\Models\Room;
 use App\Models\Schedule_detail;
+use App\Models\Semester;
+use App\Models\Subject;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
 class ScheduleDetailController extends Controller
@@ -12,9 +17,21 @@ class ScheduleDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $re)
     {
-        //
+        $sched=Schedule_detail::with('Room')->with('Subject')
+        ->with('Classtable')->with('Teacher')->with('Semester')->get();
+        if($re->query('search')){
+            $sched=Schedule_detail::where('class_name','LIKE','%'.$re->query('search').'%')
+            ->with('Room')->with('Subject')
+            ->with('Classtable')->with('Teacher')->with('Semester')->get();
+        }
+        $room=Room::get(['id','room_name']);
+        $sub=Subject::all();
+        $class=Classtable::all();
+        $teach=Teacher::all();
+        $sem=Semester::all();
+        return view('schedule_details.index',compact('class','teach','sub','sched','sem','room'));
     }
 
     /**
@@ -35,7 +52,11 @@ class ScheduleDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sched=$request->except(['_token','updated_by','_method']);
+        if(Schedule_detail::create($sched)){
+            return redirect('schedules')->with('message', 'Schedule one record was created successfully!');
+        } 
+        return back();
     }
 
     /**
@@ -78,8 +99,11 @@ class ScheduleDetailController extends Controller
      * @param  \App\Models\Schedule_detail  $schedule_detail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Schedule_detail $schedule_detail)
+    public function destroy($id)
     {
-        //
+        if(Schedule_detail::where('id',$id)->delete()){
+            return redirect('schedules')->with('message', 'Schedule record deleted successfully');
+        }
+        return back();
     }
 }

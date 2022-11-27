@@ -4,7 +4,7 @@
      Assign student to a class
 @endpush
 @push('sub_Header')
-     <a href="/assign_students">assign student</a> / index
+     <a href="/assign_students">student_class</a> / index
 @endpush
 @section('content')
      <div>
@@ -37,9 +37,8 @@
                                    <th>Gender</th>
                                    <th>Phone</th>
                                    <th>Date of Birth</th>
-                                   <th>Class ID</th>
+                                   {{-- <th>Class ID</th> --}}
                                    <th>Class Name</th>
-                                   <th>Subject</th>
                                    <th style="width: 9%">Actions</th>
                               </tr>
                          </thead>
@@ -61,23 +60,21 @@
                                         <td>
                                              {{ $ass->Student->dob }}
                                         </td>
-                                        <td>
+                                        {{-- <td>
                                              {{ $ass->classtable_id }}
-                                        </td>
+                                        </td> --}}
                                         <td>
                                              {{ $ass->Classtable->class_name }}
                                         </td>
+                                    
                                         <td>
-                                             {{ $ass->Classtable->Schedule->Subject->subject_name }}
-                                        </td>
-                                        <td>
-                                             <form action="/assign_students/{{$ass->student_id}}" method="post" class="d-flex justify-content-between">
+                                             <form action="/student_classes/{{$ass->student_id}}" method="post" class="d-flex justify-content-between">
                                                   @csrf
                                                   @method('DELETE')
-                                                  <a href="javascript:void(0)" onclick="this.parentElement.submit();return confirm('Do want to delete this record?');" class="bi bi-trash text-danger"></a> |
-                                                  <a href="/assign_students/{{$ass->student_id}}/edit"  class="bi bi-folder-plus"></a> | 
+                                                  <a href="javascript:void(0)" onclick="this.parentElement.submit();return confirm('Do want to delete this record?');" class="bi bi-trash text-danger"></a>
+                                                  {{-- <a href="/student_classes/{{$ass->student_id}}/edit"  class="bi bi-folder-plus"></a>  --}}
                                                   {{-- data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="" --}}
-                                                  <a href="/assign_students/{{$ass->student_id}}" class="bi bi-text-paragraph"></a>
+                                                  {{-- <a href="/assign_students/{{$ass->student_id}}" class="bi bi-text-paragraph"></a> --}}
                                              </form>
                                         </td>
                                    </tr>

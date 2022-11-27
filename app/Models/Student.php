@@ -10,7 +10,7 @@ class Student extends Model
     use HasFactory;
     protected $guarded=[];
 
-    public function student_class(){
-        return $this->hasMany(Assign_student::class);
+    public function classtable(){
+        return $this->belongsToMany(Classtable::class);
     }
 }
