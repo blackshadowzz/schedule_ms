@@ -1,7 +1,7 @@
 => Database Table
 
 
-=> Entities Table 
+=> Entities fields
 
 	-> User 
 		- id
