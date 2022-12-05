@@ -39,6 +39,7 @@
                                    <th>Date of Birth</th>
                                    {{-- <th>Class ID</th> --}}
                                    <th>Class Name</th>
+                                   <th>Created Date</th>
                                    <th style="width: 9%">Actions</th>
                               </tr>
                          </thead>
@@ -46,7 +47,7 @@
                               @foreach ($assign as $ass)
                                    <tr>
                                         <td>
-                                             {{ $ass->student_id }}
+                                             {{ $ass->id }}
                                         </td>
                                         <td>
                                              {{ $ass->Student->first_name }} {{ $ass->Student->last_name }}
@@ -66,15 +67,17 @@
                                         <td>
                                              {{ $ass->Classtable->class_name }}
                                         </td>
-                                    
                                         <td>
-                                             <form action="/student_classes/{{$ass->student_id}}" method="post" class="d-flex justify-content-between">
+                                             {{ $ass->created_at->format('d-M-Y') }}
+                                        </td>
+                                        <td>
+                                             <form action="/student_classes/{{$ass->id}}" method="post" class="d-flex justify-content-between">
                                                   @csrf
                                                   @method('DELETE')
-                                                  <a href="javascript:void(0)" onclick="this.parentElement.submit();return confirm('Do want to delete this record?');" class="bi bi-trash text-danger"></a>
-                                                  {{-- <a href="/student_classes/{{$ass->student_id}}/edit"  class="bi bi-folder-plus"></a>  --}}
-                                                  {{-- data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="" --}}
-                                                  {{-- <a href="/assign_students/{{$ass->student_id}}" class="bi bi-text-paragraph"></a> --}}
+                                                  <a href="javascript:void(0)" onclick="this.parentElement.submit();return confirm('Do want to delete this record?');" class="bi bi-trash text-danger"></a> | 
+                                                  <a href="/student_classes/{{$ass->id}}/edit"  class="bi bi-folder-plus"></a> 
+                                                  {{-- data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever=""--}}
+                                                  {{-- <a href="/assign_students/{{$ass->id}}" class="bi bi-text-paragraph"></a> --}}
                                              </form>
                                         </td>
                                    </tr>
@@ -82,6 +85,9 @@
                          </tbody>
 
                     </table>
+               </div>
+               <div class="d-flex justify-content-center">
+                    {!! $assign->links("pagination::bootstrap-4") !!}
                </div>
           </div>
      </div>

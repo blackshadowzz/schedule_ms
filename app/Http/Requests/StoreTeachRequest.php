@@ -24,11 +24,12 @@ class StoreTeachRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name' =>'required|min:1|max:80',
-            'last_name' =>'required|min:1|max:80',
+            'first_name' =>'required|min:2|max:80',
+            'last_name' =>'required|min:2|max:80',
             'email' =>'required|min:1|max:150',
             'phone' =>'required|min:1|max:15',
             'position_id' =>'required|integer',
+            
         ];
     }
 }

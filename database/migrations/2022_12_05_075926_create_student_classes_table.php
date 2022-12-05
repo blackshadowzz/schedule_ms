@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('student_classes', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('classtable_id');
-            $table->primary(array('student_id','classtable_id'));
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('classtable_id')->references('id')->on('classtables');
             $table->timestamps();

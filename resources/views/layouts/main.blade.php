@@ -42,7 +42,7 @@
   </style>
   {{-- @vite('resources/css/app.css') --}}
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-collapse sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->

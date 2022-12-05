@@ -30,7 +30,7 @@ class RoomController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -41,6 +41,17 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            // rules
+            'room_name' => 'required|min:2|max:100',
+            'floor' => 'required',
+        ],[
+
+            // custom message
+            'room_name.required' => 'Please enter a room name!',
+            'room_name.max' => 'Characters must be between 3 and 100 characters',
+            'floor.required' => 'Please enter a floor',
+        ]);
         $room=new Room();
         $room->room_name=$request->room_name;
         $room->floor=$request->floor;

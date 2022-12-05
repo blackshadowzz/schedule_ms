@@ -86,6 +86,12 @@
                   <p class="ml-3">Subject</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="/semesters" class="nav-link">
+                  <i class="bi bi-card-checklist ml-2"></i>
+                  <p class="ml-3">Semester</p>
+                </a>
+              </li>
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">

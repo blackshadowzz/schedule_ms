@@ -58,7 +58,7 @@
                               </div>
                          </div>
                          <div class="col-6">
-                              <div class="mt-2">
+                              <div class="">
                                    <label for="last_name" class="form-label">Last Name</label>
                                    <input type="text" name="last_name" value="{{ old('last_name') }}" class="form-control flex-col" id="last_name" required placeholder="Last name...">
                                    @error('last_name')

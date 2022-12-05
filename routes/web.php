@@ -16,7 +16,8 @@ use App\Models\Classtable;
 use App\Models\Student;
 use App\Models\Subject;
 use App\Models\Teacher;
-
+use App\Models\Student_class;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,14 +64,30 @@ Route::middleware('auth')->group(function(){
         });
     });
 
-    Route::get('/home', function(){
+    Route::get('/home', function(Request $re){
 
         $class=Classtable::all()->count();
         $sub=Subject::all()->count();
         $stu_count=Student::all()->count();
         $teach_count=Teacher::all()->count();
 
-        return view('/home',compact('stu_count','teach_count','class','sub'));
+        //Student class
+        $assign=Student_class::with('Student')->with('Classtable')->orderBy('id', 'desc')->paginate(5);
+        if($re->query('search')){
+            $assign=Student_class::where('fisrt_name','LIKE','%'.$re->query('search').'%')
+            ->orWhere('last_name','LIKE','%'.$re->query('search').'%')->
+            orWhere('class_name','LIKE','%'.$re->query('search').'%')->with('Student')->with('Classtable')->paginate(5);
+        }
+
+        //Teacher part
+        $teach=Teacher::with('Position')->orderBy('id', 'desc')->paginate(5);
+        if($re->query('search')){
+            $teach=Teacher::where('first_name','LIKE','%'.$re->query('search').'%')
+            ->orWhere('last_name','LIKE','%'.$re->query('search').'%')
+            ->orWhere('email','LIKE','%'.$re->query('search').'%')->with('Position')->paginate(5);
+        }
+
+        return view('/home',compact('stu_count','teach_count','class','sub','assign','teach'));
     });
 
 });

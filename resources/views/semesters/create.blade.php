@@ -51,9 +51,11 @@
                                    <label for="semester_name" class="form-label">Semester</label>
                                    <select name="semester_name" id="semester_name" class="form-select">
                                         <option value="" style="display:none;">Choose semester</option>
-                                        <option value="Semester One">Semester One</option>
-                                        <option value="Semester Two">Semester Two</option>
-                                        <option value="Semester Three">Semester Three</option>
+                                        <option value="Fisrt">Fisrt Semester</option>
+                                        <option value="Second">Second Semester</option>
+                                        <option value="Third">Third Semester</option>
+                                        <option value="3Month">3 Month</option>
+                                        <option value="1Month">1 Month</option>
                                    </select>
                                    @error('semester_name')
                                    <span class="text-danger">{{ $message }}</span>

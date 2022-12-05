@@ -37,7 +37,7 @@
                <div class="mt-2">
                     <label for="classtable_id" class="form-label">Class Name</label>
                     <select name="classtable_id" id="classtable_id" class="form-select">
-                         <option value="{{ $stu_class->classtable_id }}" style="display: none">{{ $stu_class->class_name }}</option>
+                         <option value="{{ $stu_class->classtable_id }}" style="display: none">{{ $stu_class->Classtable->class_name }}</option>
                          @foreach ($class as $c)
                               <option value="{{ $c->id }}">{{ $c->class_name }}</option>
                          @endforeach
@@ -49,7 +49,7 @@
                
 
                <div class="modal-footer mt-2">
-                    <button type="submit" style="float: right" class="btn btn-info ">Add New</button>
+                    <button type="submit" style="float: right" class="btn btn-info ">Update Now</button>
                </div>
                     
                     
