@@ -12,15 +12,11 @@ use Illuminate\Http\Request;
 
 class ScheduleDetailController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index(Request $re)
     {
         $sched=Schedule_detail::with('Room')->with('Subject')
-        ->with('Classtable')->with('Teacher')->with('Semester')->get();
+        ->with('Classtable')->with('Teacher')->with('Semester')->orderBy('id', 'desc')->get();
         if($re->query('search')){
             $sched=Schedule_detail::where('class_name','LIKE','%'.$re->query('search').'%')
             ->with('Room')->with('Subject')
@@ -34,22 +30,13 @@ class ScheduleDetailController extends Controller
         return view('schedule_details.index',compact('class','teach','sub','sched','sem','room'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $sched=$request->except(['_token','updated_by','_method']);
@@ -59,50 +46,45 @@ class ScheduleDetailController extends Controller
         return back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Schedule_detail  $schedule_detail
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Schedule_detail $schedule_detail)
+    public function show($id)
     {
-        //
+        if($id==null) return abort(404);
+        $sched=Schedule_detail::where('id',$id)->with('Room')->with('Subject')
+        ->with('Classtable')->with('Teacher')->with('Semester')->first();
+        return view("schedule_details.view",compact('sched'));
+
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Schedule_detail  $schedule_detail
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Schedule_detail $schedule_detail)
+
+    public function edit($id)
     {
-        //
+        if($id==null) return abort(404);
+        $sched=Schedule_detail::where('id',$id)->with('Room')->with('Subject')
+        ->with('Classtable')->with('Teacher')->with('Semester')->first();
+        $room=Room::get(['id','room_name']);
+        $sub=Subject::all();
+        $class=Classtable::all();
+        $teach=Teacher::all();
+        $sem=Semester::all();
+        return view('schedule_details.update',compact('class','teach','sub','sched','sem','room'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Schedule_detail  $schedule_detail
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Schedule_detail $schedule_detail)
+
+    public function update(Request $request, $id)
     {
-        //
+        $sched=$request->except(['_token','id','_method','created_by']);
+        if(Schedule_detail::where('id',$id)->update($sched)){
+            return redirect('schedules')->with('message_danger', 'Schedule record updated successfully!');
+        }
+        return back();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Schedule_detail  $schedule_detail
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         if(Schedule_detail::where('id',$id)->delete()){
-            return redirect('schedules')->with('message', 'Schedule record deleted successfully');
+            return redirect('schedules')->with('message_danger', 'Schedule record deleted successfully');
         }
         return back();
     }

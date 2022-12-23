@@ -13,7 +13,7 @@ class StudentClassController extends Controller
 
     public function index(Request $re)
     {
-        $assign=Student_class::with('Student')->with('Classtable')->paginate(8);
+        $assign=Student_class::with('Student')->with('Classtable')->orderBy('id', 'desc')->paginate(8);
         if($re->query('search')){
             $assign=Student_class::where('fisrt_name','LIKE','%'.$re->query('search').'%')
             ->orWhere('last_name','LIKE','%'.$re->query('search').'%')->
@@ -40,9 +40,10 @@ class StudentClassController extends Controller
     }
 
 
-    public function show(Student_class $student_class)
+    public function show($id)
     {
-        //
+        $stu_class=Student_class::where('id',$id)->with('Student')->with('Classtable')->first();
+        return view('assign_students.view',compact('stu_class'));
     }
 
     public function edit($id)

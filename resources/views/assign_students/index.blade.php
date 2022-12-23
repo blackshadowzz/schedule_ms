@@ -37,7 +37,7 @@
                                    <th>Gender</th>
                                    <th>Phone</th>
                                    <th>Date of Birth</th>
-                                   {{-- <th>Class ID</th> --}}
+                                   {{-- <th>Subject</th> --}}
                                    <th>Class Name</th>
                                    <th>Created Date</th>
                                    <th style="width: 9%">Actions</th>
@@ -62,7 +62,7 @@
                                              {{ $ass->Student->dob }}
                                         </td>
                                         {{-- <td>
-                                             {{ $ass->classtable_id }}
+                                             {{ $ass->Schedule_detail->Subject->subject_name }}
                                         </td> --}}
                                         <td>
                                              {{ $ass->Classtable->class_name }}
@@ -77,7 +77,7 @@
                                                   <a href="javascript:void(0)" onclick="this.parentElement.submit();return confirm('Do want to delete this record?');" class="bi bi-trash text-danger"></a> | 
                                                   <a href="/student_classes/{{$ass->id}}/edit"  class="bi bi-folder-plus"></a> 
                                                   {{-- data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever=""--}}
-                                                  {{-- <a href="/assign_students/{{$ass->id}}" class="bi bi-text-paragraph"></a> --}}
+                                                  <a href="/student_classes/{{$ass->id}}" class="bi bi-text-paragraph"></a>
                                              </form>
                                         </td>
                                    </tr>

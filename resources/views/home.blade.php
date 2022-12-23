@@ -15,7 +15,8 @@
                     <div class="box-title row align-items-start text-white ">
                         <div class="col-sm-6">Student</div>
                         <div class="title-icon col-sm-6 text-right">
-                                <i class="bi bi-people-fill"></i>
+                              <i class="bi bi-people-fill"></i>
+                                
                         </div>
 
                     </div>

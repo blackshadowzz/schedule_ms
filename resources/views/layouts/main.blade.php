@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="blackshadowz" content="Learn more about laravel framework with black shadowz">
   <title>@yield('title','Home')</title>
 
   <!-- Bootstrap​​ Icons -->
@@ -15,6 +16,8 @@
   <!-- JS for searching -->
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Khmer&family=Poppins:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+  
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
@@ -95,10 +98,13 @@
   </aside>
   <!-- /.control-sidebar -->
 
-  {{-- <!-- Main Footer -->
-  <footer class="main-footer">
+  <!-- Main Footer -->
+  <footer class="main-footer d-flex justify-content-center h-8">
     <!-- To the right -->
-  </footer> --}}
+    <div>
+      <strong class="text-muted">Copyright &copy; <a href="https://github.com/blackshadowzz">Blackshadowzz</a>.</strong> All rights reserved.
+    </div>
+  </footer>
 </div>
 <!-- ./wrapper -->
 
