@@ -3,6 +3,7 @@
 @push('Header')
      Assign student to a class
 @endpush
+
 @push('sub_Header')
      <a href="/assign_students">student_class</a> / index
 @endpush
@@ -67,6 +68,7 @@
                                         <td>
                                              {{ $ass->Classtable->class_name }}
                                         </td>
+                                        
                                         <td>
                                              {{ $ass->created_at->format('d-M-Y') }}
                                         </td>

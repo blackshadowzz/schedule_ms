@@ -7,7 +7,7 @@
      <!-- Sidebar -->
      <div class="sidebar">
        <!-- Sidebar user panel (optional) -->
-       {{-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
          <div class="image">
            <img src="/assets/images/admin.jpg" class="img-circle elevation-2" alt="User Image">
          </div>
@@ -15,7 +15,7 @@
            <a href="" class="d-block">{{ Auth::user()->name }}</a>
          </div>
        </div>
-  --}}
+ 
  
        <!-- Sidebar Menu -->
        <nav class="mt-2">
