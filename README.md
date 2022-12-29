@@ -44,8 +44,8 @@
 
 	-> student_class (new )
 		- id
-		- student_id (primary key)
-		- class_id (primary key)
+		- student_id
+		- class_id
 		- created_by
 		- updated_by
 
